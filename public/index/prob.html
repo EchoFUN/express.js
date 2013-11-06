@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <title>Learn</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            debugger;
+        
+            function animal() {
+                this.move = function() {
+                    return 'move';
+                };
+            }
+
+            function emptyFunc() {
+            }
+
+
+            emptyFunc.prototype = animal.prototype;
+
+            var a = new emptyFunc();
+
+        </script>
+    </body>
+</html>

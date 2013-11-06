@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Learn canvas</title>
+    <style type="text/css">
+			* {
+				margin:0;
+				padding:0;
+			}
+			
+			body, html {
+			  height: 100%;
+			  width: 100%;
+			}
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas">
+      Do not support!
+    </canvas>
+    <script>
+      var body = document.getElementsByTagName('body')[0], canvas = document.getElementById('canvas');
+      canvas.setAttribute('height', body.offsetHeight - 2);
+      canvas.setAttribute('width', body.offsetWidth);
+    </script>
+
+    <script src="general.js"></script>
+  </body>
+</html>
