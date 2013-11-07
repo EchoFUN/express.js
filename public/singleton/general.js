@@ -6,22 +6,26 @@ var singleton = function(fn) {
 };
 
 var getMask = singleton(function() {
-  var login = document.createElement('div');
-  login.innerHTML = 'I am a login test!';
-  return login;
+
+  // 执行a, b, c步骤。
+  var mask = document.createElement('div');
+  console.log('A div has created for once !');
+  return mask;
 });
 
-var getWords = singleton(function() {
-  var test = document.createElement('span');
-  test.innerHTML = 'I am a words test!';
-  return test;
+var blankMask = getMask();
+document.body.appendChild(blankMask);
+
+window.setTimeout(function() {
+  blankMask.parentNode.removeChild(blankMask);
+
+  window.setTimeout(function() {
+    document.body.appendChild(getMask());
+  }, 1000);
+}, 1000);
+
+
+define(function() {
+  
+   
 });
-
-debugger;
-document.body.appendChild(getMask());
-document.body.appendChild(getMask());
-document.body.appendChild(getWords());
-
-
-
-
