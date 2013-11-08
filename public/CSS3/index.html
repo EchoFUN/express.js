@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <title>提示框</title>
+      <link rel="stylesheet" href="css/main.css">
+   </head>
+
+   <body>
+
+      <div id="tiplayer" class="tiplayer" style="margin-left: 100px;">
+         Test
+      </div>
+      <div id="tiplayer2" class="tiplayer2" style="margin-left: 100px;">
+         Test
+      </div>
+
+      <script>
+         var tip = document.getElementById('tiplayer');
+
+         tip.addEventListener('webkitAnimationStart', function() {
+            return;
+         });
+
+         window.setTimeout(function() {
+            tip.className = 'tiplayer tiplayerHover';
+            window.setTimeout(function() {
+               // tip.className = 'tiplayer tiplayerOver';
+            }, 0);
+         }, 3000);
+         
+      </script>
+   </body>
+</html>

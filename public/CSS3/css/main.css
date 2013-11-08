@@ -1,0 +1,23 @@
+
+.tiplayer {
+   width: 286px;
+   height: 89px;
+   border: 1px solid #666;
+   background-color: #ccc;
+   -webkit-transition: -webkit-transform ease-in-out .5s;
+   -webkit-transform: perspective(800px) rotateX(0);
+}
+
+.tiplayer2 {
+   width: 286px;
+   height: 89px;
+   border: 1px solid #666;
+}
+
+.tiplayerHover {
+   -webkit-transform: perspective(800px) rotateX(-90deg);
+}
+
+.tiplayerOver {
+   -webkit-transform: perspective(800px) rotateX(0deg);
+}
