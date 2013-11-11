@@ -1,22 +1,57 @@
 (function(exports) {
 
-   var timers = [];
+   var timerPair = {};
 
-   var process = function() {
-
+   var isPlainObject = function(obj) {
+      var key;
+      for (key in obj ) {
+         ;
+      }
+      return key === undefined || {}.hasOwnProperty.call(obj, key);
    };
 
-   var time = {
+   var process = function() {
+      if (isPlainObject(process) && isRunning) {
+         return ;
+      } else {
+         var delay;
+         for (delay in timerPair) {
 
-      setTimeout : function() {
+            // 执行每个回调列表。
+            var queue = timerPair[i];
+            for (var i in queue) {
+               queue[i]();
+            }
+            exports.setTimeout(process, delay);
+         }
+      }
+   };
+
+   var Timer = {
+
+      setTimeout : function(fn, timeout) {
 
       },
 
-      setInterval : function() {
+      setInterval : function(fn, interval) {
+         if (timerPair.interval) {
+            timerPair[interval].queue = [fn];
+         } else {
+            timerPair[interval].push(fn);
+         }
+      },
+
+      clearInterval : function() {
+
+      },
+
+      clearTimeout : function() {
 
       }
    };
 
-   exports.timer = timer;
+   // 执行主序列。
+   process();
+   exports.Timer = Timer;
 
 })(this);
