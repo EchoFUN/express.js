@@ -20,11 +20,11 @@ exports.mock = function(req, resp) {
          "newInform" : [{
             'url' : '/232332',
             'avatar': '',
-            'name' : 'xukai'
+            'name' : '楷哥'
          }, {
             'url' : '/232332',
             'avatar': '',
-            'name' : 'xinxin'
+            'name' : '欣欣姐'
          }]
       }
    };
