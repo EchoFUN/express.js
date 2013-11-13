@@ -16,8 +16,10 @@ exports.mock = function(req, resp) {
          "newMessage" : 0,
          "newNotice" : 0,
          "newVisitors" : 0,
-         "newFollow" : 0,
-         "newInform" : [{
+         "newFollow" : 0
+      },
+      
+      "newOnlineUsers": [{
             'url' : '/232332',
             'avatar': '',
             'name' : '楷哥'
@@ -26,7 +28,6 @@ exports.mock = function(req, resp) {
             'avatar': '',
             'name' : '欣欣姐'
          }]
-      }
    };
 
    resp.setHeader('Content-Type', 'application/json; charset=UTF-8');
