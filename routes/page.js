@@ -7,6 +7,8 @@ exports.test = function(req, resp) {
    resp.end(JSON.stringify(ret));
 };
 
+var counter = 0;
+
 exports.mock = function(req, resp) {
 
    var ret = {
@@ -27,10 +29,49 @@ exports.mock = function(req, resp) {
             'url' : '/232332',
             'avatar': '',
             'name' : '欣欣姐'
+         },{
+            'url' : '/232332',
+            'avatar': '',
+            'name' : '欣欣姐2'
+         },{
+            'url' : '/232332',
+            'avatar': '',
+            'name' : '欣欣姐3'
+         },{
+            'url' : '/232332',
+            'avatar': '',
+            'name' : '欣欣姐4'
+         },{
+            'url' : '/232332',
+            'avatar': '',
+            'name' : '欣欣姐5'
+         },{
+            'url' : '/232332',
+            'avatar': '',
+            'name' : '欣欣姐6'
+         },{
+            'url' : '/232332',
+            'avatar': '',
+            'name' : '欣欣姐7'
+         },{
+            'url' : '/232332',
+            'avatar': '',
+            'name' : '欣欣姐8'
+         },{
+            'url' : '/232332',
+            'avatar': '',
+            'name' : '欣欣姐9'
          }]
    };
 
    resp.setHeader('Content-Type', 'application/json; charset=UTF-8');
-
-   resp.end(JSON.stringify(ret));
+   
+   if (counter == 0) {
+      resp.end(JSON.stringify(ret));
+   } else {
+      ret.newOnlineUsers = [];
+      resp.end(JSON.stringify(ret));
+   }
+   
+   counter++;
 };
