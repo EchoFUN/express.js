@@ -8,10 +8,6 @@
    <body>
       
       <div id="tiplayer" class="tiplayer" style="margin-left: 100px;">
-         <div class="avatar fL">
-            <a href="<%= url %>"><img src="<%= avatar %>" alt="<%= name %>"></a>
-         </div>
-         <div class="tips">您喜欢的 <%= name %> 刚刚上线了，千万别错过姻缘，赶紧打个招呼吧。</div>
       </div>
       
       <script>
@@ -20,9 +16,9 @@
             if (tip.className.indexOf('tiplayerHover') != -1) {
                tip.className = 'tiplayer';
             } else {
-               tip.className = 'tiplayer';
+               tip.className = 'tiplayer tiplayerHover';
             }
-         }, 5000);
+         }, 3000);
       </script>
    </body>
 </html>

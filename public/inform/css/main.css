@@ -1,14 +1,29 @@
-
 .tiplayer {
+   position: fixed;
+   left: auto;
    width: 286px;
-   height: 89px;
-   border: 1px solid #666;
+   height: 120px;
    background-color: #ccc;
-   -webkit-transition: all ease-in-out .5s;
+   border: 1px solid #999;
+   
+   /* css翻转 */
+   -webkit-transition: -webkit-transform ease-in-out .5s;
+   -moz-transition: -moz-transform ease-in-out .5s;
+   -ms-transition: -ms-transform ease-in-out .5s;
+   -o-transition: -o-transform ease-in-out .5s;
+   transition: transform ease-in-out .5s;
    -webkit-transform: perspective(800px) rotateX(-90deg);
+   -moz-transform: perspective(800px) rotateX(-90deg);
+   -ms-transform: perspective(800px) rotateX(-90deg);
+   -o-transform: perspective(800px) rotateX(-90deg);
+   transform: perspective(800px) rotateX(-90deg);
 }
 
 .tiplayerHover {
    -webkit-transform: perspective(800px) rotateX(0deg);
+   -moz-transform: perspective(800px) rotateX(0deg);
+   -ms-transform: perspective(800px) rotateX(0deg);
+   -o-transform: perspective(800px) rotateX(0deg);
+   transform: perspective(800px) rotateX(0deg);
 }
 
