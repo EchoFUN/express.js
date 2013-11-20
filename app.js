@@ -12,7 +12,7 @@ var logger = express.logger(':remote-addr : visite the host(:date)');
 
 app.configure(function() {
    app.use(function(req, res, next) {
-      if (!(/\.(png|jpg|gif|jpeg)$/i).test(req.path)) {
+      if (!(/\.(png|jpg|gif|jpeg|js|css)$/i).test(req.path)) {
          logger(req, res, next);
       } else {
          next();
