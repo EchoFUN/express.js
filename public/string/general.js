@@ -4,8 +4,9 @@
  *  
  */
 
-var test = '你好！';
+var test = '你好！', test2 = 'Hello, world!';
 
-for(var i=0; i<test.length; i++) {
-   console.log(test.charCodeAt(i));
-}
+console.log(test2.slice(1, -1));
+console.log(test2);
+
+// console.log(test2.slice(null, -1))
