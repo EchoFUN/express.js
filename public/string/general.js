@@ -1,12 +1,25 @@
-/**
- *
- * 
- *  
- */
+function Person(name) {
+   this.name = name;
+}
 
-var test = '你好！', test2 = 'Hello, world!';
+Person.prototype = {
+   getName : function() {
+      return this.name;
+   }
+}
 
-console.log(test2.slice(1, -1));
-console.log(test2);
+function Employee(name, employeeID) {
+   this.name = name;
+   this.employeeID = employeeID;
+}
 
-// console.log(test2.slice(null, -1))
+Employee.prototype = new Person();
+
+Employee.prototype.getEmployeeID = function() {
+   return this.employeeID;
+};
+
+var zhang = new Employee("ZhangSan", "1234");
+
+console.log(zhang.getName());
+// "ZhangSan" 
