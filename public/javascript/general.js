@@ -35,5 +35,5 @@ function makeClass() {
       if (this instanceof arguments.callee) {
 
       }
-   }
+   };
 }

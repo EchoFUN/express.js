@@ -6,7 +6,7 @@ Person.prototype = {
    getName : function() {
       return this.name;
    }
-}
+};
 
 function Employee(name, employeeID) {
    this.name = name;

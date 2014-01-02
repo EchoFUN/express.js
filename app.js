@@ -8,7 +8,7 @@ var map = require('./map');
 
 var app = express();
 
-var logger = express.logger(':remote-addr : visite the host(:date)');
+var logger = express.logger(':remote-addr : visite the host at (:date)');
 
 app.configure(function() {
    app.use(function(req, res, next) {

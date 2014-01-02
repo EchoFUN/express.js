@@ -3,22 +3,25 @@
  *
  */
 
-var test = document.getElementById('test'); 
+var test = document.getElementById('test'), test2 = document.getElementById('test2');
 
-$(test).on('test', function() {
-	
-});
-$(test).on('test2', function() {
-	
-});
-$(test).on('test3', function() {
-	
+evt(test).bind('click', function() {
+  alert('I am !');
 });
 
+// evt(test).trigger('click');
 
-setTimeout(function() {
-	$(test).trigger('test3');
-}, 3000);
+evt(test2).bind('show', function() {
+  alert('I am 2 !');
+});
 
+evt(test2).unbind('show');
+evt(test2).trigger('show');
 
-// wapper(test).bind('')
+/*
+$(test).bind('clicks', function(){
+  alert('222'); 
+});
+
+$(test).trigger('clicks');
+*/
