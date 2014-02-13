@@ -12,6 +12,5 @@ module.exports = function(app) {
 	app.post('/recommend/list', page.mock);
 	app.get('/recommend/list', page.mock);
 	
-	app.post('/newCount', page.mock);
-	app.get('/newCount', page.mock);
+	app.post('/test', page.mock);
 }; 

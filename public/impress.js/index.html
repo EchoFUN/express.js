@@ -91,6 +91,7 @@
         
     -->
     <link href="css/impress-demo.css" rel="stylesheet" />
+    <link href="css/ppt.css" rel="stylesheet" />
     
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -164,8 +165,29 @@
         It will not be rotated or scaled.
         
     -->
-    <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
-        <q>Aren't you just <b>bored</b> with all those slides-based presentations?</q>
+    <div id="slide-1392260627117" class="step slide" data-x="-4000" data-y="-2000" data-z="60" data-rotate="-30">
+      <span class="title">诞生</span>
+      <p style=" text-align: center; margin-top: 50px; "><img src="images/9.jpg" /></p>
+      <p style=" text-align: center; margin-top: 98px; ">2005年以后，互联网进入Web 2.0时代（Ajax）</p>
+    </div>
+    
+    <div id="slide-1392261463090" class="step slide" data-x="-3125" data-y="-2500" data-z="60" data-rotate="-30">
+      <span class="title">诞生</span>
+      <p style=" text-align: center; margin-top: 50px; "><img src="images/12.jpg" /></p>
+      <p style=" font-size: 30px; text-align: center; margin-top: 50px; ">江湖人称“页面仔”</p>
+    </div>
+    
+    <div id="slide-1392262367081" class="step slide" data-x="-2254" data-y="-3000" data-z="60" data-rotate="-30">
+      <span class="title">诞生</span>
+      <p style=" text-align: center;"><img height="520" src="images/10.jpg" /></p>
+    </div>
+    
+    <div id="slide-1388844497829" class="step slide" data-x="-1000" data-y="-1500">
+      <span class="title">前端开发的演进</span>
+      <p style="font-size: 30px;">第一阶段</p>
+      <p style="margin-top: 5px;">新特征：交互简单，或者没有交互，整个页面的结构布局以table, tr, td为主。辅以简单的onclick, onblur, onload交互js函数</p>
+      <p>如下所示：</p>
+      <p style="margin-top: 5px;"><img src="images/1.jpg" /></p>
     </div>
 
     <!--
@@ -183,12 +205,20 @@
         Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
         
     -->
-    <div class="step slide" data-x="0" data-y="-1500">
-        <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
+    <div id="slide-1388844624203" class="step slide" data-x="0" data-y="-1500">
+      <span class="title">前端开发的演进</span>
+      <p style="font-size: 30px;">第二阶段</p>
+      <p style="margin-top: 5px;">遇到的问题：函数名称的冲突，需要绑定多个事件，页面的布局不够灵活</p>
+      <p style="margin-top: 5px;">新的特征：页面布局开始转向div结构，js开发开始有了统一的命名空间</p>
+      <p style="margin-top: 31px;text-align: center;"><img style=" height: 350px; " src="images/14.jpg" /></p>
     </div>
 
-    <div class="step slide" data-x="1000" data-y="-1500">
-        <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
+    <div id="slide-1388844636955" class="step slide" data-x="1000" data-y="-1500">
+      <span class="title">前端开发的演进</span>
+      <p style="font-size: 30px;">第三阶段</p>
+      <p style="margin-top: 5px;">遇到的问题：页面结构越来越复杂，js和css难以维护，页面性能低下，速度慢</p>
+      <p style="margin-top: 5px;">新的特征：node.js, common.js, AMD(require.js), CMD(sea.js), uglify.js, grunt.js等</p>
+      <p style=" text-align: center; margin-top: 16px; "><img style=" height: 366px; " src="images/13.jpg" /></p>
     </div>
 
     <!--
@@ -201,10 +231,39 @@
         down (4 times) to make it back to it's correct size.
         
     -->
-    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <span class="try">then you should try</span>
-        <h1>impress.js<sup>*</sup></h1>
-        <span class="footnote"><sup>*</sup> no rhyme intended</span>
+    <div id="slide-1388844651492" class="step slide" data-x="0" data-y="500" data-scale="3">
+      <span class="title">前端的困惑与通用方案</span>
+      <p style="font-size: 30px;margin-top: 10px;">开发环境vs生产环境</p>
+      <p style="margin-top: 20px;">开发环境：</p>
+      <p style="margin-top: 5px;">1. 便捷开发</p>
+      <p style="margin-top: 5px;">2. 尽可能的模拟线上真实环境</p>
+      <p style="margin-top: 5px;">3. 性能可以暂不考虑</p>
+      <p style="margin-top: 20px;">生产环境：</p>
+      <p style="margin-top: 5px;">1. 考虑代码运行效率（css压缩，js代码的混淆）</p>
+      <p style="margin-top: 5px;">2. 考虑用户最优体验（css，js摆放位置和获取速度CDN）</p>
+    </div>
+    
+    <div id="slide-1388844668323" class="step slide" data-x="3000" data-y="500" data-scale="3">
+      <span class="title">前端的困惑与通用方案</span>
+      <p style="font-size: 30px;margin-top: 10px;">部署的方式</p>
+      <p style="margin-top: 20px;">1. 完成一个打包部署的自动化脚本（ant, grunt）</p>
+      <p style="margin-top: 20px;">2. 辅助工具（opm, spm）</p>
+    </div>
+    
+    <div id="slide-1388844680539" class="step slide" data-x="6000" data-y="500" data-scale="3">
+      <span class="title">前端的困惑与通用方案</span>
+      <p style="font-size: 30px;margin-top: 10px;">脚本的组织方式(JS)</p>
+      <p style="margin-top: 20px;">1. 用一个全局变量的方式定义命名空间</p>
+      <p style="margin-top: 20px;">2. commonjs模块化的方式定义命名空间（打造javascript生态圈）</p>
+      <p style=" text-align: center; margin-top: 50px; "><img style=" height: 190px; " src="images/15.png" /></p>
+    </div>
+
+    <div id="slide-1388844694235" class="step slide" data-x="0" data-y="2900" data-scale="3">
+      <span class="title">前端的困惑与通用方案</span>
+      <p style="font-size: 30px;margin-top: 10px;">脚本的组织方式(CSS)</p>
+      <p style="margin-top: 20px;">1. 约定大于开发</p>
+      <p style="margin-top: 20px;">2. 辅助工具（SASS，LESS）</p>
+      <p style=" text-align: center; margin-top: 50px; "><img style="height: 300px;" src="images/16.png" /></p>
     </div>
 
     <!--
@@ -215,14 +274,16 @@
         element should be rotated by 90 degrees clockwise.
         
     -->
-    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-        <p>It's a <strong>presentation tool</strong> <br/>
-        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+    <div id="slide-1388844706099" class="step slide" data-x="6050" data-y="12000" data-rotate="90" data-scale="5">
+      <span class="title">我们的方案</span>
+      <p style="font-size: 30px;margin-top: 10px;">开发结构</p>
+    
     </div>
-
-    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+    
+    <div id="slide-1388844718170" class="step slide" data-x="6050" data-y="21000" data-rotate="90" data-scale="5">
+      <span class="title">我们的方案</span>
+      <p style="font-size: 30px;margin-top: 10px;">部署方式</p>
+      
     </div>
 
     <!--
@@ -234,8 +295,30 @@
         positioned far away from us (by 3000px).
         
     -->
-    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-        <p>and <b>tiny</b> ideas</p>
+    <div id="slide-1388844748226" class="step slide" data-x="1025" data-y="16325"  data-rotate="300" data-scale="1">
+      <span class="title">前端的进阶与修炼</span>
+      <p style="font-size: 30px;margin-top: 10px;">HTML5, CSS3（移动端方向）</p>
+      <p style="margin-top: 60px;margin-left: 39px;"><img class="positioning" src="images/3.jpg" height="200" width="300" /></p>
+      <p style="margin-top: -131px;padding-left: 276px;"><img class="rotating" src="images/4.jpg" height="200" width="300" /></p>
+    </div>
+    
+    <div id="slide-1388844776930" class="step slide" data-x="1725" data-y="16725"  data-rotate="300" data-scale="1">
+      <span class="title">前端的进阶与修炼</span>
+      <p style="font-size: 30px;margin-top: 10px;">Node.js</p>
+      <p style="margin-top: 5px;">Paypal & Groupon</p>
+      <p style="margin-top: 5px;"><img src="images/6.jpg" width="400" /></p>
+      <p></p>
+    </div>
+    
+    <div id="slide-1388844789898" class="step slide" data-x="2425" data-y="17125" data-rotate="300" data-scale="1">
+      <span class="title">前端的进阶与修炼</span>
+      <p style="font-size: 30px;margin-top: 10px;">数据可视化</p>
+      <p style=" margin-top: 34px; "><img style=" height: 333px; " src="images/17.bmp" /></p>
+    </div>
+    
+    <div id="slide-1388844800578" class="step slide" data-x="1933px" data-y="19500" data-z="1000" data-scale="2">
+      <span class="title">疑问？</span>
+      <p style="font-size: 30px;text-align: center;margin-top: 100px;"><img src="images/8.jpg" /></p>
     </div>
 
     <!--
@@ -258,22 +341,9 @@
         Only one current step has the `present` class.
         
     -->
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
-    </div>
 
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
-    </div>
 
-    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-        <p>want to know more?</p>
-        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
-    </div>
 
-    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-        <p>one more thing...</p>
-    </div>
 
     <!--
         
@@ -287,10 +357,6 @@
         as `data-rotate` (these two are basically aliases).
         
     -->
-    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-        <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-        <span class="footnote">* beat that, prezi ;)</span>
-    </div>
 
     <!--
         
@@ -307,8 +373,7 @@
         CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
         
     -->
-    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
-    </div>
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10"></div>
 
 </div>
 
