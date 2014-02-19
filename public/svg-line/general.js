@@ -34,7 +34,7 @@ var drawLine = function() {
     return d.x - d3.min(xList) + 5;
   }).y(function(d) {
     return d.y - d3.min(yList) + 5;
-  }).interpolate('linear');
+  }).interpolate('cardinal');
 
   //把path扔到容器中，并给d赋属性
   var lineGraph = chart.append('path').attr('d', lineFunction(lineData)).attr('stroke', 'green').attr('stroke-width', 2).attr('fill', 'none');
