@@ -1,6 +1,5 @@
 /**
  * SVG 画出直线接口的封装
- *
  */
 
 function Pointer(x, y) {
@@ -8,7 +7,6 @@ function Pointer(x, y) {
   this.y = y || 0;
 
   // 点的一些其他信息
-
 }
 
 /**
@@ -48,12 +46,17 @@ function draw(points) {
   }).interpolate('cardinal');
 
   // 生成节点圆圈和直线
+  // 移除不需要的节点
   chart.selectAll('path').remove();
+  chart.selectAll('circle').remove();
+  
+  // 重新绘制节点
   chart.append('path').attr('d', lineFunction(points)).attr('stroke', 'green').attr('stroke-width', 1).attr('fill', 'none');
   chart.selectAll('circle').data(points).enter().append('circle').attr('cx', function(d) {
     return d.x;
   }).attr('cy', function(d) {
     return d.y;
   }).attr('r', 5).attr('stroke', 'green').attr('stroke-width', 1).attr('fill', 'white');
+  
+  return chart;
 }
-
