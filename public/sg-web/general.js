@@ -50,7 +50,7 @@ var lineLocation = [];
 // 当前的画布
 var brush = Snap('#brush');
 
-var wh = $(window).height() - 80, ww = $(window).width() - 50;
+var wh = $(window).height() - 55, ww = $(window).width() - 100;
 
 // 画出服务器
 var serverList = {};
@@ -115,6 +115,16 @@ for (var i = 0; i < Links.length; i++) {
     'stroke' : '#3C6EBA',
     'strokeWidth' : 1
   });
+  if (i == 2) {
+    line.attr({
+      'stroke': 'red'
+    });
+  }
+  if (i == 3) {
+    line.attr({
+      'stroke': 'green'
+    });
+  }
   brush.prepend(line);
   
   lines[line.id] = {
