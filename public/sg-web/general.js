@@ -34,14 +34,15 @@ var groupLocation = [{
   x: '11',
   y: '12'
 }, {
-  id: '1',
-  x: '11',
-  y: '12'
-}, {
-  id: '1',
+  id: '2',
   x: '11',
   y: '12'
 }];
+
+var GSRelation = [{
+  1: [9, 10]},{
+  2: [11, 12, 13]
+}]
 
 var lineLocation = [];
 
@@ -51,6 +52,35 @@ var lineLocation = [];
 var brush = Snap('#brush');
 
 var wh = $(window).height() - 55, ww = $(window).width() - 100;
+
+var serverWidth = 100, serverHeight = 55;
+
+// 首先在页面上随机画出分组框
+for (var i=0; i<GSRelation.length; i++) {
+  var relation = GSRelation[i];
+  
+  var xLocate = Math.random() * ww, yLocate = Math.random() * wh;
+  var gId, gSList;
+  for (var j in relation) {
+    gId = j;
+    gSList = relation[j];
+  }
+  
+  var serverSize = gSList.length;
+  var groupContent = brush.rect(xLocate, yLocate, serverSize * serverWidth + (serverSize + 1)  * 3, serverHeight + 6 ).attr({
+    'fill' : 'none',
+    'stroke' : '#3C6EBA',
+    'strokeWidth' : 1,
+  });
+  var groupTitle = brush.rect(xLocate - 1, yLocate - 30, serverSize * serverWidth + 2 + (serverSize + 1)  * 3, 30 ).attr({
+    'fill' : '#3C6EBA',
+    'strokeWidth' : 0,
+  });
+  var groupPair = brush.g(groupTitle, groupContent);
+  groupPair.drag();
+}
+
+
 
 // 画出服务器
 var serverList = {};
