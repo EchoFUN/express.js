@@ -67,22 +67,47 @@ for (var i=0; i<GSRelation.length; i++) {
   }
   
   var serverSize = gSList.length;
-  var groupContent = brush.rect(xLocate, yLocate, serverSize * serverWidth + (serverSize + 1)  * 3, serverHeight + 6 ).attr({
-    'fill' : 'none',
+  var groupContent = brush.rect(xLocate, yLocate, serverSize * serverWidth + (serverSize + 1)  * 10, serverHeight + 20 ).attr({
+    'fill' : '#ffffff',
     'stroke' : '#3C6EBA',
     'strokeWidth' : 1,
   });
-  var groupTitle = brush.rect(xLocate - 1, yLocate - 30, serverSize * serverWidth + 2 + (serverSize + 1)  * 3, 30 ).attr({
+  var groupTitle = brush.rect(xLocate - 1, yLocate - 30, serverSize * serverWidth + 2 + (serverSize + 1)  * 10, 30 ).attr({
     'fill' : '#3C6EBA',
     'strokeWidth' : 0,
+    'cursor': 'move'
   });
-  var groupPair = brush.g(groupTitle, groupContent);
+  
+  
+  var groupPair = brush.g(groupContent, groupTitle);
+  
+  // 在每个分组中添加服务器列表
+  for (var j=0; j<gSList.length; j++) {
+    xLocate += 10;
+    var serverData = gSList[j];
+    
+    var server = brush.rect(xLocate, yLocate + 10, 100, 55).attr({
+      'fill' : '#CCCCCC',
+      'stroke' : '#3C6EBA',
+      'strokeWidth' : 2,
+      'data-sid' : serverData.id
+    });
+    var serverHandler = brush.circle(xLocate, yLocate + 10, 5).attr({
+      'fill' : '#3C6EBA',
+      'stroke' : '#3C6EBA',
+      'strokeWidth' : 2,
+    });
+    xLocate += 100;
+    serverPair = brush.g(server, serverHandler);
+    groupPair.append(serverPair);
+  }
+  
+  
   groupPair.drag();
 }
 
 
 
-// 画出服务器
 var serverList = {};
 var moveServer = function(dx, dy, x, y) {
   var circle = this.select('circle');
@@ -125,6 +150,7 @@ for (var i = 0; i < Servers.length; i++) {
   serverList[server.id] = server;
 }
 
+
 var getServer = function(id) {
   for (var i in serverList) {
     if (serverList[i].attr('data-sid') == id) {
@@ -133,7 +159,6 @@ var getServer = function(id) {
   }
 };
 
-// 画出连接
 var lines = {};
 for (var i = 0; i < Links.length; i++) {
   var link = Links[i];
@@ -142,7 +167,7 @@ for (var i = 0; i < Links.length; i++) {
   var server1X = parseInt(server1.attr('x'), 10), server1Y = parseInt(server1.attr('y'), 10);
   var server2X = parseInt(server2.attr('x'), 10), server2Y = parseInt(server2.attr('y'), 10);
   var line = brush.line(server1X, server1Y, server2X, server2Y).attr({
-    'stroke' : '#3C6EBA',
+    'stroke' : '#000000',
     'strokeWidth' : 1
   });
   if (i == 2) {
@@ -177,7 +202,7 @@ var rePaint = function() {
     
     line.attr('x1', server1X).attr('x2', server2X).attr('y1', server1Y).attr('y2', server2Y);
   }
-};
+}; 
 
 
 
