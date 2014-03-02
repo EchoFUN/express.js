@@ -175,7 +175,7 @@ var drawLine = function() {
     if (i == 2) {
       line.attr({
         'stroke' : 'red',
-        'strokeWidth' : 2
+        'strokeWidth' : 1
       });
     }
     if (i == 3) {
@@ -201,4 +201,26 @@ var drawLine = function() {
 // 执行区域
 drawGroup();
 drawLine();
+
+$('#brush').on('contextmenu', function(evt) {
+  evt.preventDefault();
+  var xPos = evt.pageX, yPos = evt.pageY;
+  
+  var contextMenuHTML = '<div class="context-menu" style="position:absolute;left:' + xPos + 'px;top:' + yPos + 'px;"><a href="javascript:;" class="item">创建分组</a></div>';
+  $('body').append(contextMenuHTML);
+});
+
+$(document).on('click', function() {
+  $('.context-menu').detach();
+});
+
+
+
+
+
+
+
+
+
+
 
