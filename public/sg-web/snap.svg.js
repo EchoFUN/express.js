@@ -106,7 +106,7 @@
                             if (stop) {
                                 break;
                             }
-                        } while (l)
+                        } while (l);
                     } else {
                         queue[l.zIndex] = l;
                     }
