@@ -27,6 +27,12 @@ var Servers = [{
   appKey : 'mtmis'
 }];
 
+var ServerMachines = [{
+  '9': [{load: '50'}, {load: '20'}, {load: '100'}],
+}, {
+  '12': [{load: '20'}, {load: '0'}]
+}];
+
 var Links = [[9, 13], [10, 12], [9, 11], [12, 13]];
 
 var Groups = [{
@@ -51,7 +57,7 @@ var Relations = [{
 // 首次加载绘图额时候的数据 ---------------------- end
 
 var winHeight = $(window).height(), winWidth = $(window).width();
-var serverWidth = 100, serverHeight = 55;
+var serverWidth = 100, serverHeight = 78;
 var brush = Snap('#brush');
 
 var getServerData = function(id) {
@@ -66,6 +72,14 @@ var getRelatedServers = function(gid) {
   for (var i = 0; i < Relations.length; i++) {
     if (Relations[i].gid == gid) {
       return Relations[i].sids;
+    }
+  }
+};
+
+var getMachines = function(sid) {
+  for (var i = 0; i < ServerMachines.length; i++) {
+    if (ServerMachines[i][sid]) {
+      return ServerMachines[i][sid];
     }
   }
 };
@@ -91,14 +105,25 @@ var drawServers = function(servers, container, xLocate, yLocate) {
       'font-size' : 10,
       'fill' : '#3C6EBA'
     });
-    var text2 = brush.text(xLocate + 5, yLocate + 50, serverData.name).attr({
+    var text2 = brush.text(xLocate + 5, yLocate + 49, serverData.name).attr({
       'font-size' : 10,
       'fill' : '#3C6EBA'
     });
-    xLocate += 100;
     var serverPairG = brush.g(server, serverHandler, text1, text2);
+    var machines = getMachines(serverData.id);
+    if (machines) {
+      for (var j = 0; j < machines.length; j++) {
+        var loadVal = machines[j].load;
+        var redVal = parseInt(510 * loadVal / 100);
+        var greenVal = 510 - redVal;
+        var machineRect = brush.rect(xLocate + j * 25 + 6, yLocate + 60, 20, 20).attr({
+          'fill': 'rgb(' + redVal + ',' + greenVal + ',0)'
+        });
+        serverPairG.append(machineRect);
+      }
+    }
+    xLocate += 100;
     container.append(serverPairG);
-
     drawedServers[serverData.id] = server;
   }
 };
@@ -149,6 +174,7 @@ var drawGroup = function() {
       'strokeWidth' : 0,
       'cursor' : 'move'
     });
+    $(groupTitle.node).on('contextmenu', groupTitleContextMenu);
     var text = brush.text(xLocate + 7, yLocate - 9, '分组').attr({
       'fill' : '#FFFFFF'
     });
@@ -198,15 +224,43 @@ var drawLine = function() {
   };
 };
 
+var groupTitleContextMenu = function(evt) {
+evt.preventDefault();
+      evt.stopPropagation();
+      $('.context-menu').detach();
+      var xPos = evt.pageX, yPos = evt.pageY;
+      var contextMenuHTML = '<div class="context-menu" style="position:absolute;left:' + xPos + 'px;top:' + yPos + 'px;"><a href="javascript:;" class="item">删除分组</a><a href="javascript:;" class="item border-top-0">添加服务</a></div>';
+      $('body').append(contextMenuHTML);
+};
+
 // 执行区域
 drawGroup();
 drawLine();
 
+var drawEmptyGroup = function(menu) {
+  var $menu = $(menu);
+  var xLocate = $menu.offset().left, yLocate = $menu.offset().top;
+  var groupContent = brush.rect(xLocate, yLocate + 30, 1 * serverWidth + 2 * 10, serverHeight + 20).attr({
+    'fill' : '#FFFFFF',
+    'stroke' : '#3C6EBA',
+    'strokeWidth' : 1,
+  });
+  var groupTitle = brush.rect(xLocate - 1, yLocate, 1 * serverWidth + 2 + (1 + 1) * 10, 30).attr({
+    'fill' : '#3C6EBA',
+    'strokeWidth' : 0,
+    'cursor' : 'move'
+  });
+  $(groupTitle.node).on('contextmenu', groupTitleContextMenu);
+  var newGroupG = brush.g(groupTitle, groupContent);
+  brush.prepend(newGroupG);
+  newGroupG.drag();
+};
+
 $('#brush').on('contextmenu', function(evt) {
   evt.preventDefault();
+  $('.context-menu').detach();
   var xPos = evt.pageX, yPos = evt.pageY;
-  
-  var contextMenuHTML = '<div class="context-menu" style="position:absolute;left:' + xPos + 'px;top:' + yPos + 'px;"><a href="javascript:;" class="item">创建分组</a></div>';
+  var contextMenuHTML = '<div class="context-menu" style="position:absolute;left:' + xPos + 'px;top:' + yPos + 'px;"><a href="javascript:;" onclick="drawEmptyGroup(this)" class="item">创建分组</a></div>';
   $('body').append(contextMenuHTML);
 });
 
