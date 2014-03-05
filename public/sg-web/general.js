@@ -28,7 +28,7 @@ var Servers = [{
 }];
 
 var ServerMachines = [{
-  '9': [{load: '50'}, {load: '20'}, {load: '100'}],
+  '9': [{load: '50'}, {load: '20'}, {load: '100'}]
 }, {
   '12': [{load: '20'}, {load: '0'}]
 }];
@@ -53,7 +53,7 @@ var Relations = [{
   gid : 3,
   sids : [10]
 }];
-
+//test commit by wanghe
 // 首次加载绘图额时候的数据 ---------------------- end
 
 var winHeight = $(window).height(), winWidth = $(window).width();
@@ -167,7 +167,7 @@ var drawGroup = function() {
     var groupContent = brush.rect(xLocate, yLocate, serverSize * serverWidth + (serverSize + 1) * 10, serverHeight + 20).attr({
       'fill' : '#FFFFFF',
       'stroke' : '#3C6EBA',
-      'strokeWidth' : 1,
+      'strokeWidth' : 1
     });
     var groupTitle = brush.rect(xLocate - 1, yLocate - 30, serverSize * serverWidth + 2 + (serverSize + 1) * 10, 30).attr({
       'fill' : '#3C6EBA',
@@ -247,7 +247,7 @@ var drawEmptyGroup = function(menu) {
   var groupContent = brush.rect(xLocate, yLocate + 30, 1 * serverWidth + 2 * 10, serverHeight + 20).attr({
     'fill' : '#FFFFFF',
     'stroke' : '#3C6EBA',
-    'strokeWidth' : 1,
+    'strokeWidth' : 1
   });
   var groupTitle = brush.rect(xLocate - 1, yLocate, 1 * serverWidth + 2 + (1 + 1) * 10, 30).attr({
     'fill' : '#3C6EBA',
