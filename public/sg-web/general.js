@@ -224,13 +224,17 @@ var drawLine = function() {
   };
 };
 
+var deleteGroup = function() {
+  
+};
+
 var groupTitleContextMenu = function(evt) {
-evt.preventDefault();
-      evt.stopPropagation();
-      $('.context-menu').detach();
-      var xPos = evt.pageX, yPos = evt.pageY;
-      var contextMenuHTML = '<div class="context-menu" style="position:absolute;left:' + xPos + 'px;top:' + yPos + 'px;"><a href="javascript:;" class="item">删除分组</a><a href="javascript:;" class="item border-top-0">添加服务</a></div>';
-      $('body').append(contextMenuHTML);
+  evt.preventDefault();
+  evt.stopPropagation();
+  $('.context-menu').detach();
+  var xPos = evt.pageX, yPos = evt.pageY;
+  var contextMenuHTML = '<div class="context-menu" style="position:absolute;left:' + xPos + 'px;top:' + yPos + 'px;"><a onclick="deleteGroup(this)" href="javascript:;" class="item">删除分组</a><a href="javascript:;" class="item border-top-0">添加服务</a></div>';
+  $('body').append(contextMenuHTML);
 };
 
 // 执行区域
