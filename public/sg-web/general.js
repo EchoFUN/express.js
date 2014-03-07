@@ -244,20 +244,33 @@ drawLine();
 var drawEmptyGroup = function(menu) {
   var $menu = $(menu);
   var xLocate = $menu.offset().left, yLocate = $menu.offset().top;
-  var groupContent = brush.rect(xLocate, yLocate + 30, 1 * serverWidth + 2 * 10, serverHeight + 20).attr({
-    'fill' : '#FFFFFF',
-    'stroke' : '#3C6EBA',
-    'strokeWidth' : 1
-  });
-  var groupTitle = brush.rect(xLocate - 1, yLocate, 1 * serverWidth + 2 + (1 + 1) * 10, 30).attr({
-    'fill' : '#3C6EBA',
-    'strokeWidth' : 0,
-    'cursor' : 'move'
-  });
-  $(groupTitle.node).on('contextmenu', groupTitleContextMenu);
-  var newGroupG = brush.g(groupTitle, groupContent);
-  brush.prepend(newGroupG);
-  newGroupG.drag();
+
+   //TODO 内存中面板对象要与后台数据库保持实时同步  by wanghe。
+
+    /**
+     * 新增面板
+     * @type {model.Group}
+     */
+  var panel = new model.Group(xLocate,yLocate,1 * serverWidth + 2 * 10,serverHeight + 20);
+
+    /**
+     * 以下代码已经移动至service.js Group by wanghe。
+     */
+//  var groupContent = brush.rect(xLocate, yLocate + 30, 1 * serverWidth + 2 * 10, serverHeight + 20).attr({
+//    'fill' : '#FFFFFF',
+//    'stroke' : '#3C6EBA',
+//    'strokeWidth' : 1
+//  });
+//  var groupTitle = brush.rect(xLocate - 1, yLocate, 1 * serverWidth + 2 + (1 + 1) * 10, 30).attr({
+//    'fill' : '#3C6EBA',
+//    'strokeWidth' : 0,
+//    'cursor' : 'move'
+//  });
+//
+//  $(groupTitle.node).on('contextmenu', groupTitleContextMenu);
+//  var newGroupG = brush.g(groupTitle, groupContent);
+//  brush.prepend(newGroupG);
+//  newGroupG.drag();
 };
 
 $('#brush').on('contextmenu', function(evt) {
